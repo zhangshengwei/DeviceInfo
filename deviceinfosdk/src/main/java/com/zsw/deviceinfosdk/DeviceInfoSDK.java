@@ -6,6 +6,7 @@ import android.os.Looper;
 
 import com.bun.miitmdid.core.JLibrary;
 import com.zsw.deviceinfosdk.config.DeviceInfoConfig;
+import com.zsw.deviceinfosdk.entity.DeviceData;
 import com.zsw.deviceinfosdk.manager.GatherInfoManager;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,7 @@ public class DeviceInfoSDK {
     private static DeviceInfoSDK instance;
     private DeviceInfoConfig deviceInfoConfig;
     private boolean oaidInitSuccess;
+
 
     private DeviceInfoSDK() {
     }
@@ -77,5 +79,13 @@ public class DeviceInfoSDK {
 
     public boolean isOaidInitSuccess() {
         return oaidInitSuccess;
+    }
+
+    /**
+     * 返回设备信息
+     * @return
+     */
+    public DeviceData getDeviceData() {
+        return GatherInfoManager.getInstance().getDeviceData();
     }
 }
